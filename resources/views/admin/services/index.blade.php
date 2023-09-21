@@ -22,18 +22,18 @@ active
             <div class="order">
                 <div class="head">
                     <h3>Services</h3>
-                  <a class="create__btn" href="{{ route('admin.services.create')}}"><i class="bx bxs-folder-plus">
+                  <a class="create__btn" href="{{ route('admin.services.create')}}"><i class="bi bi-plus-circle-fill">
                     </i>Yaratish</a>
                 </div>
-                <table>
-                    <thead>
+                <table class="table table-bordered table-hover">
+                    <thead class="thead-dark">
                         <tr>
-                            <th>#</th>
-                            <th>Description</th>
-                            <th>Services Name</th>
-                            <th>Services Description</th>
-                            <th>Data</th>
-                            <th>Action</th>
+                            <th scope="col">#</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Services Name</th>
+                            {{-- <th scope="col">Services Description</th> --}}
+                            <th scope="col">Data</th>
+                            <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -42,9 +42,9 @@ active
                         
                         <tr>
                             <td>{{ ++$loop->index }}</td>
-                            <td>{{ \Str::limit($item->description,20) }}</td>
-                            <td>{{ $item->services_name }}</td>
-                            <td>{{ \Str::limit($item->services_description,20) }}</td>
+                            <td>{!! \Str::limit($item->description_uz,20) !!}</td>
+                            <td>{{ $item->services_name_uz }}</td>
+                            {{-- <td>{{ \Str::limit($item->services_description,20) }}</td> --}}
                         
                             <td>{{ $item->created_at }}</td>
                             <td>
@@ -53,10 +53,10 @@ active
                                     @csrf
                                     @method('DELETE')
 
-                                    <a class="btn btn-primary" href="{{ route('admin.services.show', $item->id) }}"><ion-icon name="eye-outline"></ion-icon></a>
-                                    <a class="btn btn-primary" href="{{ route('admin.services.edit', $item->id) }}"><ion-icon name="create-outline"></ion-icon></a>
+                                    <a class="btn btn-primary" href="{{ route('admin.services.show', $item->id) }}"><i class="bi bi-eye-fill"></i></a>
+                                    <a class="btn btn-primary" href="{{ route('admin.services.edit', $item->id) }}"><i class="bi bi-pencil-fill"></i></a>
 
-                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Do you want to delete ?')"><ion-icon name="trash-outline"></ion-icon></button>
+                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Do you want to delete ?')"><i class="bi bi-trash-fill"></i></button>
 
                                 </form>
                             </td>

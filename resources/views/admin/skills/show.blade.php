@@ -11,7 +11,7 @@
         <div class="order">
             <div class="head">
                 <h3>Show</h3>
-                <a class="create__btn" href="{{ route('admin.skills.index') }}"></i>Back</a>
+                <a class="create__btn" href="{{ route('admin.skills.index') }}"> <i class="bi bi-backspace-fill"></i>Back</a>
             </div>
             <table>
                 <tr>
@@ -19,8 +19,16 @@
                     <td>{{ $skill->id }}</td>
                 </tr>
                 <tr>
-                    <td>Description</td>
-                    <td>{{ $skill->description }}</td>
+                    <td>Description UZ</td>
+                    <td>{!! $skill->description_uz !!}</td>
+                </tr>
+                <tr>
+                    <td>Description Ru</td>
+                    <td>{!! $skill->description_ru !!}</td>
+                </tr>
+                <tr>
+                    <td>Description En</td>
+                    <td>{!! $skill->description_en !!}</td>
                 </tr>
                 <tr>
                     <td>Skills Name Right</td>

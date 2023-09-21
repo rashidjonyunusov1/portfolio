@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\SkillStoreRequest;
+use App\Http\Requests\SkillUpdateRequest;
 use App\Models\Skill;
 use Illuminate\Http\Request;
 
@@ -28,7 +30,7 @@ class SkillController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(SkillStoreRequest $request)
     {
         Skill::create($request->all());
         
@@ -54,7 +56,7 @@ class SkillController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Skill $skill)
+    public function update(SkillUpdateRequest $request, Skill $skill)
     {
         $requestData = $request->all();
 

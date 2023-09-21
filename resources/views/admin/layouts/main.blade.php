@@ -19,6 +19,10 @@
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    {{-- <link rel="stylesheet" href="https://fontawesome.com/icons/pen-to-square?f=classic&s=solid"> --}}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 
     <!-- Libraries Stylesheet -->
     <link href="/admin/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
@@ -29,6 +33,17 @@
 
     <!-- Template Stylesheet -->
     <link href="/admin/css/style.css" rel="stylesheet">
+    <!-- Admin Panel CSS -->
+	<link href="/admin/style.css" rel="stylesheet">
+
+     <!-- Include Twitter Bootstrap and jQuery: -->
+     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
+    
+
+     <!-- Include the plugin's CSS and JS: -->
+     
+     <link rel="stylesheet" href="css/bootstrap-multiselect.css" type="text/css" />
+    
 </head>
 
 <body>
@@ -73,6 +88,7 @@
                             <a href="{{ route('admin.services.index')}}" class="dropdown-item">Service</a>
                             <a href="{{ route('admin.skills.index')}}" class="dropdown-item">Skills</a>
                             <a href="{{ route('admin.social_networks.index')}}" class="dropdown-item">Social Networks</a>
+                            <a href="{{ route('admin.resume.index')}}" class="dropdown-item">Resume</a>
                         </div>
                     </div>
                     <!-- <a href="" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Categories</a> -->
@@ -183,9 +199,14 @@
                             <span class="d-none d-lg-inline-flex">John Doe</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                            <a href="#" class="dropdown-item">My Profile</a>
-                            <a href="#" class="dropdown-item">Settings</a>
-                            <a href="#" class="dropdown-item">Log Out</a>
+                            <a href="/profile" class="dropdown-item">My Profile</a>
+                            <a href="/profile" class="dropdown-item">Settings</a>
+                            <a href="#." class="dropdown-item">
+                                <form action="{{ route('logout') }}" method="POST">
+                                    @csrf
+                                       <button>LogOut</button>
+                                </form>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -231,6 +252,9 @@
 
     <!-- Template Javascript -->
     <script src="/admin/js/main.js"></script>
+    <!-- Admin Panel JS -->
+	<script src="/admin/script.js"></script>
+
 </body>
 
 </html>

@@ -2,7 +2,14 @@
 @section('content') 
   <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
     <!-- start home -->
-   @include('sections.home')
+   {{-- @include('sections.home') --}}
+   <div class="hero-container" data-aos="fade-in">
+  
+    <h1>@lang('home.name')</h1>
+    <p><b>@lang('home.my')</b> <b><span class="typed" data-typed-items="@lang('home.jobs')"></span></b></p>
+    <br><br>
+    <!-- <h3> <a  style="color: black;" href="/curswork/index.html" target="_blank">My Projects</a></h3> -->
+  </div>
    <!-- end home -->
   </section>
 
@@ -16,11 +23,11 @@
     </section>
 
   
-    <section id="facts" class="facts">
+    {{-- <section id="facts" class="facts">
       <!-- start Facts -->
      @include('sections.facts')
      <!-- end Facts -->
-    </section>
+    </section> --}}
 
     <section id="skills" class="skills section-bg">
       <!-- start skills -->
@@ -109,9 +116,18 @@
 
     
     <section id="services" class="services">
+      <div class="container">
+
+        <div class="section-title">
+          
+          <h2>Services</h2>
+          <p>{!! $service['description_'.\App::getLocale()] !!}</p>
+          
+        </div>
       <!-- start services -->
      @include('sections.services')
       <!-- end services -->
+      </div>
     </section>
 
 

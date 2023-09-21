@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\FactController;
 use App\Http\Controllers\Admin\FormController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\PortfolioController;
+use App\Http\Controllers\Admin\ResumeController;
 // use App\Http\Controllers\Admin\Profile_imgController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SkillController;
@@ -25,8 +26,10 @@ use App\Http\Controllers\ProfileController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', [PagesController::class, 'welcome']);
+Route::get('lang/{lang}', function($lang){
+    session(['lang' => $lang]);
+    return back();
 });
 
 Route::prefix('admin/')->name('admin.')->middleware('auth')->group(function(){
@@ -46,6 +49,7 @@ Route::prefix('admin/')->name('admin.')->middleware('auth')->group(function(){
         'services' => ServiceController::class,
         'skills' => SkillController::class,
         'social_networks' => Social_networkController::class,
+        'resume' => ResumeController::class,
         
     ]);
 });

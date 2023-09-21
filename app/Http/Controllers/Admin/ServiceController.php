@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ServiceStoreRequest;
+use App\Http\Requests\ServiceUpdateRequest;
 use Illuminate\Http\Request;
 use App\Models\Service;
 
@@ -30,7 +32,7 @@ class ServiceController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ServiceStoreRequest $request)
     {
         // dd($request);
         Service::create($request->all());
@@ -57,7 +59,7 @@ class ServiceController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Service $service)
+    public function update(ServiceUpdateRequest $request, Service $service)
     {
         $requestData = $request->all();
 

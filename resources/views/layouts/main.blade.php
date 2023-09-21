@@ -62,18 +62,19 @@
         <!-- end social networks -->
       </div><br>
       <div style="color: blue;">
-        &nbsp&nbsp&nbsp&nbsp&nbsp;<a href="#" class="nav-item"><span>UZB</span></a>&nbsp&nbsp&nbsp&nbsp&nbsp;
-        <a href="#" class="nav-item"><span>Eng</span></a>&nbsp&nbsp&nbsp&nbsp&nbsp;
-        <a href="#" class="nav-item"><span>Rus</span></a>&nbsp&nbsp&nbsp&nbsp&nbsp;
+        &nbsp&nbsp&nbsp&nbsp&nbsp;<a href="/lang/uz" class="nav-item"><span>UZB</span></a>&nbsp&nbsp&nbsp&nbsp&nbsp;
+        <a href="/lang/en" class="nav-item"><span>Eng</span></a>&nbsp&nbsp&nbsp&nbsp&nbsp;
+        <a href="/lang/ru" class="nav-item"><span>Rus</span></a>&nbsp&nbsp&nbsp&nbsp&nbsp;
+        {{-- {{ \App::getLocale() }} --}}
       </div>
       <nav id="navbar" class="nav-menu navbar">
         <ul>
-          <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
-          <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
+          <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>@lang('navbar.home')</span></a></li>
+          <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>@lang('navbar.about')</span></a></li>
           <!-- <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li> -->
-          <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Portfolio</span></a></li>
-          <li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Services</span></a></li>
-          <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
+          <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>@lang('navbar.portfolio')</span></a></li>
+          <li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>@lang('navbar.services')</span></a></li>
+          <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>@lang('navbar.contact')</span></a></li>
         </ul>
       </nav>
     </div>

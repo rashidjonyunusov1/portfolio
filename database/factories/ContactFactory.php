@@ -18,8 +18,12 @@ class ContactFactory extends Factory
     public function definition(): array
     {
         return [
-            'description' => Str::random(20),
-            'location' => Str::random(20),
+            'description_uz' => Str::random(20),
+            'description_ru' => Str::random(20),
+            'description_en' => Str::random(20),
+            'location_uz' => Str::random(20),
+            'location_ru' => Str::random(20),
+            'location_en' => Str::random(20),
             'email' => Str::random(20),
             'call' => Str::random(10),
             'location_url' => Str::random(30),

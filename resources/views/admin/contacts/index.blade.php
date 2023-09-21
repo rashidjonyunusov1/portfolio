@@ -22,20 +22,20 @@ active
             <div class="order">
                 <div class="head">
                     <h3>Contacts</h3>
-                  <a class="create__btn" href="{{ route('admin.contacts.create')}}"><i class="bx bxs-folder-plus">
+                  <a class="create__btn" href="{{ route('admin.contacts.create')}}"><i class="bi bi-plus-circle-fill">
                     </i>Yaratish</a>
                 </div>
-                <table>
-                    <thead>
+                <table class="table table-bordered table-hover">
+                    <thead class="thead-dark">
                         <tr>
                             <th>#</th>
-                            <th>Description</th>
-                            <th>Location</th>
-                            <th>Email</th>
-                            <th>Call</th>
-                            <th>Location URL</th>
-                            <th>Data</th>
-                            <th>Action</th>
+                            <th scope="col">Description Uz</th>
+                            {{-- <th>Location</th>
+                            <th>Email</th> --}}
+                            <th scope="col">Call</th>
+                            {{-- <th>Location URL</th> --}}
+                            <th scope="col">Data</th>
+                            <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -44,11 +44,11 @@ active
                         
                         <tr>
                             <td>{{ ++$loop->index }}</td>
-                            <td>{{ \Str::limit($item->description,20) }}</td>
-                            <td>{{ $item->location }}</td>
-                            <td>{{ $item->email }}</td>
+                            <td>{!! \Str::limit($item->description_uz,20) !!}</td>
+                            {{-- <td>{{ $item->location }}</td>
+                            <td>{{ $item->email }}</td> --}}
                             <td>{{ $item->call }}</td>
-                            <td>{{ \Str::limit($item->location_url,20) }}</td>
+                            {{-- <td>{{ \Str::limit($item->location_url,20) }}</td> --}}
                             <td>{{ $item->created_at }}</td>
                             <td>
 
@@ -56,10 +56,10 @@ active
                                     @csrf
                                     @method('DELETE')
 
-                                    <a class="btn btn-primary" href="{{ route('admin.contacts.show', $item->id) }}"><ion-icon name="eye-outline"></ion-icon></a>
-                                    <a class="btn btn-primary" href="{{ route('admin.contacts.edit', $item->id) }}"><ion-icon name="create-outline"></ion-icon></a>
+                                    <a class="btn btn-primary" href="{{ route('admin.contacts.show', $item->id) }}"><i class="bi bi-eye-fill"></i></a>
+                                    <a class="btn btn-primary" href="{{ route('admin.contacts.edit', $item->id) }}"><i class="bi bi-pencil-fill"></i></a>
 
-                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Do you want to delete ?')"><ion-icon name="trash-outline"></ion-icon></button>
+                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Do you want to delete ?')"><i class="bi bi-trash-fill"></i></button>
 
                                 </form>
                             </td>

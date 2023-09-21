@@ -11,7 +11,7 @@
         <div class="order">
             <div class="head">
                 <h3>Show</h3>
-                <a class="create__btn" href="{{ route('admin.forms.index') }}"></i>Back</a>
+                <a class="create__btn" href="{{ route('admin.forms.index') }}"><i class="bi bi-backspace-fill"></i>Back</a>
             </div>
             <table>
                 <tr>

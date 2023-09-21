@@ -22,20 +22,20 @@ active
             <div class="order">
                 <div class="head">
                     <h3>Forms</h3>
-                  <a class="create__btn" href="{{ route('admin.forms.create')}}"><i class="bx bxs-folder-plus">
+                  <a class="create__btn" href="{{ route('admin.forms.create')}}"><i class="bi bi-plus-circle-fill">
                     </i>Yaratish</a>
                 </div>
-                <table>
-                    <thead>
+                <table class="table table-bordered table-hover">
+                    <thead class="thead-dark">
                         <tr>
-                            <th>#</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Number</th>
-                            <th>Subject</th>
-                            <th>Message</th>
-                            <th>Data</th>
-                            <th>Action</th>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            {{-- <th scope="col">Number</th>
+                            <th scope="col">Subject</th>
+                            <th scope="col">Message</th> --}}
+                            <th scope="col">Data</th>
+                            <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -46,9 +46,9 @@ active
                             <td>{{ ++$loop->index }}</td>
                             <td>{{ $item->name }}</td>
                             <td>{{ $item->email }}</td>
-                            <td>{{ $item->number }}</td>
+                            {{-- <td>{{ $item->number }}</td>
                             <td>{{ $item->subject }}</td>
-                            <td>{{ $item->message }}</td>
+                            <td>{{ $item->message }}</td> --}}
                             <td>{{ $item->created_at }}</td>
                             <td>
 
@@ -56,10 +56,10 @@ active
                                     @csrf
                                     @method('DELETE')
 
-                                    <a class="btn btn-primary" href="{{ route('admin.forms.show', $item->id) }}"><ion-icon name="eye-outline"></ion-icon></a>
-                                    <a class="btn btn-primary" href="{{ route('admin.forms.edit', $item->id) }}"><ion-icon name="create-outline"></ion-icon></a>
+                                    <a class="btn btn-primary" href="{{ route('admin.forms.show', $item->id) }}"><i class="bi bi-eye-fill"></i></a>
+                                    <a class="btn btn-primary" href="{{ route('admin.forms.edit', $item->id) }}"><i class="bi bi-pencil-fill"></i></a>
 
-                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Do you want to delete ?')"><ion-icon name="trash-outline"></ion-icon></button>
+                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Do you want to delete ?')"><i class="bi bi-trash-fill"></i></button>
 
                                 </form>
                             </td>

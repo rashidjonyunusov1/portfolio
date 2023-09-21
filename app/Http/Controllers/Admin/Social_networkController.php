@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Social_networkStoreRequest;
+use App\Http\Requests\Social_networkUpdateRequest;
 use App\Models\Social_network;
 use Illuminate\Http\Request;
 
@@ -28,7 +30,7 @@ class Social_networkController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Social_networkStoreRequest $request)
     {
         Social_network::create($request->all());
 
@@ -54,7 +56,7 @@ class Social_networkController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Social_network $social_network)
+    public function update(Social_networkUpdateRequest $request, Social_network $social_network)
     {
         $requestData = $request->all();
 

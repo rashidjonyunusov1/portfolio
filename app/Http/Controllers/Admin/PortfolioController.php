@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PortfolioStoreRequest;
+use App\Http\Requests\PortfolioUpdateRequest;
 use App\Models\Portfolio;
 use Illuminate\Http\Request;
 
@@ -28,7 +30,7 @@ class PortfolioController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(PortfolioStoreRequest $request)
     {
         // dd($request);
         $requestData = $request->all();
@@ -63,7 +65,7 @@ class PortfolioController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Portfolio $portfolio)
+    public function update(PortfolioUpdateRequest $request, Portfolio $portfolio)
     {
         $requestData = $request->all();
 
@@ -74,11 +76,10 @@ class PortfolioController extends Controller
                 unlink(public_path('/img/'.$portfolio->img));
             }
           $requestData['img'] = $this->file_upload();
-        
-        $portfolio->update($requestData);
-
-        return redirect()->route('admin.portfolios.index')->with('success', 'Update Done');
     }
+    $portfolio->update($requestData);
+
+    return redirect()->route('admin.portfolios.index')->with('success', 'Update Done');
 }
    
     public function destroy(Portfolio $portfolio)

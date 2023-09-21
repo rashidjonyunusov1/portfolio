@@ -22,17 +22,17 @@ active
             <div class="order">
                 <div class="head">
                     <h3>Social Networks</h3>
-                  <a class="create__btn" href="{{ route('admin.social_networks.create')}}"><i class="bx bxs-folder-plus">
+                  <a class="create__btn" href="{{ route('admin.social_networks.create')}}"><i class="bi bi-plus-circle-fill">
                     </i>Yaratish</a>
                 </div>
-                <table>
-                    <thead>
+                <table class="table table-bordered table-hover">
+                    <thead class="thead-dark">
                         <tr>
-                            <th>#</th>
-                            <th>Icon</th>
-                            <th>URL</th>
-                            <th>Data</th>
-                            <th>Action</th>
+                            <th scope="col">#</th>
+                            <th scope="col">Icon</th>
+                            <th scope="col">URL</th>
+                            <th scope="col">Data</th>
+                            <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -50,10 +50,10 @@ active
                                     @csrf
                                     @method('DELETE')
 
-                                    <a class="btn btn-primary" href="{{ route('admin.social_networks.show', $item->id) }}"><ion-icon name="eye-outline"></ion-icon></a>
-                                    <a class="btn btn-primary" href="{{ route('admin.social_networks.edit', $item->id) }}"><ion-icon name="create-outline"></ion-icon></a>
+                                    <a class="btn btn-primary" href="{{ route('admin.social_networks.show', $item->id) }}"><i class="bi bi-eye-fill"></i></a>
+                                    <a class="btn btn-primary" href="{{ route('admin.social_networks.edit', $item->id) }}"><i class="bi bi-pencil-fill"></i></a>
 
-                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Do you want to delete ?')"><ion-icon name="trash-outline"></ion-icon></button>
+                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Do you want to delete ?')"><i class="bi bi-trash-fill"></i></button>
 
                                 </form>
                             </td>

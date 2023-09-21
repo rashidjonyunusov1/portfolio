@@ -10,7 +10,7 @@
                 <div class="order">
                     <div class="head">
                         <h3>Edit Form</h3>
-                        <a class="create__btn" href="{{ route('admin.forms.index')}}"> <i class='bx bx-arrow-back'></i>Qaytish</a>
+                        <a class="create__btn" href="{{ route('admin.forms.index')}}"> <i class="bi bi-backspace-fill"></i>Qaytish</a>
 
                     </div>
 

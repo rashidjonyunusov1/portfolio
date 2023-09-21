@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\FormStoreRequest;
+use App\Http\Requests\FormUpdateRequest;
 use App\Models\Form;
 use Illuminate\Http\Request;
 
@@ -28,11 +30,11 @@ class FormController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(FormStoreRequest $request)
     {
         Form::create($request->all());
 
-        return redirect()->route('layouts.main')->with('success', 'Success Done');
+        return redirect()->route('admin.forms.index')->with('success', 'Success Done');
     }
 
     /**
@@ -54,7 +56,7 @@ class FormController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Form $form)
+    public function update(FormUpdateRequest $request, Form $form)
     {
         $requestData = $request->all();
 

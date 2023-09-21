@@ -22,16 +22,20 @@ active
             <div class="order">
                 <div class="head">
                     <h3>Abouts</h3>
-                  <a class="create__btn" href="{{ route('admin.abouts.create')}}"><i class="bx bxs-folder-plus">
+                  <a class="create__btn" href="{{ route('admin.abouts.create')}}"><i class="bi bi-plus-circle-fill">
                     </i>Yaratish</a>
                 </div>
-                <table>
-                    <thead>
+                <table class="table table-bordered table-hover">
+                      
+                    
+
+
+                    <thead class="thead-dark">
                         <tr>
-                            <th>#</th>
-                            <th>Title</th>
-                            <th>Description1</th>
-                            <th>Description2</th>
+                            <th scope="col">#</th>
+                            <th scope="col">Title Uz</th>
+                            <th scope="col">Description1</th>
+                           {{--  <th>Description2</th>
                             <th>Brithday</th>
                             <th>Website</th>
                             <th>Phone</th>
@@ -39,10 +43,10 @@ active
                             <th>Age</th>
                             <th>Dagree</th>
                             <th>Email</th>
-                            <th>Freelance</th>
-                            <th>Image</th>
-                            <th>Data</th>
-                            <th>Action</th>
+                            <th>Freelance</th> --}}
+                            <th scope="col">Image</th>
+                            <th scope="col">Data</th>
+                            <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -51,9 +55,9 @@ active
                         
                         <tr>
                             <td>{{ ++$loop->index }}</td>
-                            <td>{{ \Str::limit($item->title,5) }}</td>
-                            <td>{{ \Str::limit($item->description1,5) }}</td>
-                            <td>{{ \Str::limit($item->description2,5) }}</td>
+                            <td>{{ \Str::limit($item->title_uz,50) }}</td>
+                            <td>{!! \Str::limit($item->description1_uz,5) !!}</td>
+                            {{-- <td>{!! \Str::limit($item->description2,5) !!}</td>
                             <td>{{ \Str::limit($item->brithday,4) }}</td>
                             <td>{{ \Str::limit($item->website,5) }}</td>
                             <td>{{ \Str::limit($item->phone,5) }}</td>
@@ -61,7 +65,7 @@ active
                             <td>{{ \Str::limit($item->age,5) }}</td>
                             <td>{{ \Str::limit($item->dagree,5) }}</td>
                             <td>{{ \Str::limit($item->email,5) }}</td>
-                            <td>{{ \Str::limit($item->freelance,5) }}</td>
+                            <td>{{ \Str::limit($item->freelance,5) }}</td> --}}
                             <td><img src="/img/{{ $item->img }}" width="40px"></td>
                             <td>{{ $item->created_at }}</td>
                             <td>
@@ -70,10 +74,10 @@ active
                                     @csrf
                                     @method('DELETE')
 
-                                    <a class="btn btn-primary" href="{{ route('admin.abouts.show', $item->id) }}"><ion-icon name="eye-outline"></ion-icon></a>
-                                    <a class="btn btn-primary" href="{{ route('admin.abouts.edit', $item->id) }}"><ion-icon name="create-outline"></ion-icon></a>
+                                    <a class="btn btn-primary" href="{{ route('admin.abouts.show', $item->id) }}"><i class="bi bi-eye-fill"></i></a>
+                                    <a class="btn btn-primary" href="{{ route('admin.abouts.edit', $item->id) }}"><i class="bi bi-pencil-fill"></i></a>
 
-                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Do you want to delete ?')"><ion-icon name="trash-outline"></ion-icon></button>
+                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Do you want to delete ?')"><i class="bi bi-trash-fill"></i></button>
 
                                 </form>
                             </td>

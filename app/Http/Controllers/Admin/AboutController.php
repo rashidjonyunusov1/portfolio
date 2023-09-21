@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Events\AuditEvent;
 use App\Http\Controllers\Controller;
 use App\Models\About;
 use Illuminate\Http\Request;
 use App\Http\Requests\AboutStoreRequest;
 use App\Http\Requests\AboutUpdateRequest;
+use Illuminate\Support\Facades\Auth;
 
 class AboutController extends Controller
 {
@@ -55,7 +57,6 @@ class AboutController extends Controller
 
         $requestData = $request->all();
 
-
         if($request->hasFile('img'))
         {
           $requestData['img'] = $this->file_upload();
@@ -63,6 +64,9 @@ class AboutController extends Controller
 
         About::create($requestData);
         
+        $user = auth()->user()->name;
+        event(new AuditEvent($user, 'about', 'add', $requestData));
+
         return redirect()->route('admin.abouts.index')->with('success', 'Success done');
     }
 
@@ -89,6 +93,7 @@ class AboutController extends Controller
      */
     public function update(AboutUpdateRequest $request, About $about)
     {
+        
         $requestData = $request->all();
 
         if($request->hasFile('img'))
@@ -99,11 +104,11 @@ class AboutController extends Controller
             }
           $requestData['img'] = $this->file_upload();
         
+        }
         $about->update($requestData);
         
         return redirect()->route('admin.abouts.index')->with('success', 'Update done');
     }
-}
 
    
     public function destroy(About $about)

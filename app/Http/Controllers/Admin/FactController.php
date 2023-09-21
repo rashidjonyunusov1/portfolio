@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\FactStoreRequest;
+use App\Http\Requests\FactUpdateRequest;
 use App\Models\Fact;
 use Illuminate\Http\Request;
 
@@ -28,7 +30,7 @@ class FactController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(FactStoreRequest $request)
     {
         Fact::create($request->all());
 
@@ -54,7 +56,7 @@ class FactController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Fact $fact)
+    public function update(FactUpdateRequest $request, Fact $fact)
     {
         $requestData = $request->all();
 

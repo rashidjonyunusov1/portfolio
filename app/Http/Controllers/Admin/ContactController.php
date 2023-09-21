@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\About;
 use App\Models\Contact;
 use Illuminate\Http\Request;
+use App\Http\Requests\ContactStoreRequest;
+use App\Http\Requests\ContactUpdateRequest;
 
 class ContactController extends Controller
 {
@@ -29,7 +31,7 @@ class ContactController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ContactStoreRequest $request)
     {
         // dd($request);
         Contact::create($request->all());
@@ -57,7 +59,7 @@ class ContactController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Contact $contact)
+    public function update(ContactUpdateRequest $request, Contact $contact)
     {
         $requestData = $request->all();
 
