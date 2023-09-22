@@ -19,10 +19,12 @@
 
             <div class="table-data">
                 <div class="order">
-                    <div class="head">
+                    <div class="head" >
                         <h3>Add about</h3>
-                        <a class="create__btn" href="{{ route('admin.abouts.index')}}"> <i class="bi bi-backspace-fill"></i></i>Qaytish</a>
-
+                        {{-- <a class="create__btn" href="{{ route('admin.abouts.index')}}"> <i class="bi bi-backspace-fill"></i></i>Qaytish</a> --}}
+                        <div class="m-n2">
+                            <a href="{{ route('admin.abouts.index') }}"><button type="button" class="btn btn-primary m-2"><ion-icon style="font-size: 20px; margin-bottom: 0;" name="arrow-back-outline"></ion-icon>Orqaga</button></a>
+                        </div>
                     </div>
 
                     <form class="create__inputs" action="{{ route('admin.abouts.store') }}" method="POST" enctype="multipart/form-data">
@@ -115,7 +117,7 @@
                         <strong> Rasm(png yoki jpg) :</strong>
                         <input type="file" name="img" value="{{ old('img') }}" class="form-control"> <br>
 
-                        <input type="submit" value="Qo`shish">
+                        <input type="submit" class="btn btn-primary" value="Qo`shish">
 
                     </form>
                 </div>

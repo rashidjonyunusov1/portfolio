@@ -22,8 +22,11 @@ active
             <div class="order">
                 <div class="head">
                     <h3>Abouts</h3>
-                  <a class="create__btn" href="{{ route('admin.abouts.create')}}"><i class="bi bi-plus-circle-fill">
-                    </i>Yaratish</a>
+                  {{-- <a class="create__btn" href="{{ route('admin.abouts.create')}}"><i class="bi bi-plus-circle-fill">
+                    </i>Yaratish</a> --}}
+                    <div class="d-flex justify-content-end m-3">
+                        <a href="{{ route('admin.abouts.create') }}"><button type="button" class="btn btn-primary m-2"><ion-icon style="font-size: 20px;"2 name="create-outline"></ion-icon>Yaratish</button></a>
+                    </div>
                 </div>
                 <table class="table table-bordered table-hover">
                       

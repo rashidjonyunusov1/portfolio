@@ -6,14 +6,17 @@
 <!-- MAIN -->
 <main>
 
+<div class="container-fluid pt-4 px-4">
+    <div class="m-n2">
+        <a href="{{ route('admin.abouts.index') }}"><button type="button" class="btn btn-primary m-2"><ion-icon style="font-size: 20px; margin-bottom: 0;" name="arrow-back-outline"></ion-icon>Orqaga</button></a>
+    </div>
 
-    <div class="table-data">
-        <div class="order">
-            <div class="head">
-                <h3>Show</h3>
-                <a class="create__btn" href="{{ route('admin.abouts.index') }}"><i class="bi bi-backspace-fill"></i>Back</a>
-            </div>
-            <table>
+    <div class="table-data row g-4">
+        <div class="order col-12 ">
+            <div class="bg-light rounded h-100 p-4">
+                <h3 class="mb-4">Show</h3>
+              <div class="table-responsive">
+            <table class="table">
                 <tr>
                     <td>ID</td>
                     <td>{{ $about->id }}</td>
@@ -125,9 +128,11 @@
                     </td>
                 </tr>
             </table>
+              </div>
         </div>
-
     </div>
+</div>
+
 </main>
 <!-- MAIN -->
 
