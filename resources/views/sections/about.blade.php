@@ -1,7 +1,7 @@
 {{-- @foreach ($about as $item) --}}
 <div class="container">
 <div class="section-title">  
-  <h2>About</h2>
+  <h2 id="about">About</h2>
   <p>
     {!! $about['description1_'.\App::getLocale()] !!}
     {{-- MY GOAL - Effective use of time. Proper allocation of time and money in business.<br>
